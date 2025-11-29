@@ -17,6 +17,7 @@
     "dotenv": "^17.2.3",
     "express": "^4.17.1",
     "jsonwebtoken": "^9.0.2",
+    "simple-update-notifier": "^2.0.0",
     "uuid": "^8.3.2"
   },
   "devDependencies": {
