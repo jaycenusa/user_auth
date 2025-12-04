@@ -50,8 +50,10 @@ const handleLogin = async (req, res) => {
         )
 
         res.cookie('jwt', refreshToken, { httpOnly: true, sameSite: 'None', secure: true, maxAge: 24 * 60 * 60 * 1000 }); //1 day
-
-        res.json({ accessToken });
+        // set the access token and refresh token in the API jwt header
+        res.setHeader('Authorization', `Bearer ${accessToken}`);
+        res.setHeader('x-refresh-token', refreshToken);
+        res.json('Successful authenticated');
     } else {
         res.sendStatus(401);
     }
