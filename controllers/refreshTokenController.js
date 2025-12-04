@@ -26,7 +26,8 @@ const handleRefreshToken = (req, res) => {
                 process.env.ACCESS_TOKEN_SECRET,
                 { expiresIn: '1h' }
             );
-            res.json({ accessToken });
+            res.setHeader('x-refresh-token', refreshToken);
+            res.json("Token has been refreshed");
         }
     )
 }
